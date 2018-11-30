@@ -5,25 +5,25 @@ import delay from './delay';
 // All calls return promises.
 const authors = [
   {
-    id: 'cory-house',
-    firstName: 'Cory',
-    lastName: 'House'
+    id: 'P1',
+    Name: 'P--1',
+    Price: '500.25'
   },
   {
-    id: 'scott-allen',
-    firstName: 'Scott',
-    lastName: 'Allen'
+    id: 'P2',
+    Name: 'P--2',
+    Price: '600.00'
   },
   {
-    id: 'dan-wahlin',
-    firstName: 'Dan',
-    lastName: 'Wahlin'
+    id: 'P3',
+    Name: 'P--3',
+    Price: '750.25'
   }
 ];
 
 //This would be performed on the server in a real app. Just stubbing in.
 const generateId = (author) => {
-  return author.firstName.toLowerCase() + '-' + author.lastName.toLowerCase();
+  return author.Name.toLowerCase() + '-' + author.Price.toLowerCase();
 };
 
 class ProductsAPI {
@@ -41,16 +41,16 @@ class ProductsAPI {
       setTimeout(() => {
         // Simulate server-side validation
         const minAuthorNameLength = 3;
-        if (author.firstName.length < minAuthorNameLength) {
+        if (author.Name.length < minAuthorNameLength) {
           reject(`First Name must be at least ${minAuthorNameLength} characters.`);
         }
 
-        if (author.lastName.length < minAuthorNameLength) {
+        if (author.Price.length < minAuthorNameLength) {
           reject(`Last Name must be at least ${minAuthorNameLength} characters.`);
         }
 
         if (author.id) {
-          const existingAuthorIndex = authors.findIndex(a => a.id == author.id);
+          const existingAuthorIndex = authors.findIndex(a => a.id === author.id);
           authors.splice(existingAuthorIndex, 1, author);
         } else {
           //Just simulating creation here.
