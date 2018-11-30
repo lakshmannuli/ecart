@@ -1,9 +1,15 @@
 import React from 'react'
+import Header from '../components/common/authorized/header'
+import Footer from '../components/common/authorized/footer'
 
 class App extends React.Component {
     render() {
         return (
-            <h1>ECart</h1>
+            <div>
+                <Header></Header>
+
+                <Footer></Footer>
+            </div>
         )
     }
 }
