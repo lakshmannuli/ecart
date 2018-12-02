@@ -1,19 +1,28 @@
 import React from 'react'
 
-const ProductItem = (props) =>{
-    return(
-        <tr>
-            <td>
-                {props.product.id}
-            </td>
-            <td>
-                {props.product.Name}
-            </td>
-            <td>
-                {props.product.Price}
-            </td>
-        </tr>
-    );
+class ProductItem extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    addItemToCart = () => {
+        this.props.addToCart(this.props.product);
+    }
+    render() {
+        return (
+            <tr>
+                <td>
+                    {this.props.product.Name}
+                </td>
+                <td>
+                    {this.props.product.Price}
+                </td>
+                <td>
+                    <button onClick={this.addItemToCart}>Add To Cart</button>
+                </td>
+            </tr>
+        );
+    }
 }
+
 
 export default ProductItem
