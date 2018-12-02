@@ -7,6 +7,10 @@ export default function cartReducer(state = [], action) {
                 ...state,
                 Object.assign({}, action.product)
             ]
+        case ActionTypes.GET_CART_ITEMS:
+            return [
+                ...state
+            ]
         default:
             return state;
     }

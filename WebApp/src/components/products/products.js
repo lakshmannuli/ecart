@@ -13,7 +13,6 @@ class Products extends React.Component {
     }
     addToCart = (product) => {
         console.log(product);
-        alert('Cart !!!');
         this.props.cartActions.AddToCart(product);
     }
     render() {
